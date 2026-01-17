@@ -1,5 +1,5 @@
 'use client';
-import { useParams } from 'next/navigation';
+import { useParams,useRouter } from 'next/navigation';
 import StatusBadge from '../../../../../components/StatusBadge';
 import { useEffect, useState } from 'react';
 import { getProjects } from '../../../../api/projectApi';
@@ -28,6 +28,7 @@ interface Bid {
 
 export default function BuyerProjectDetail() {
  const { id } = useParams<{ id: string }>();
+const router = useRouter();
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
