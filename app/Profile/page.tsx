@@ -136,13 +136,32 @@ export default function ProfilePage() {
     day: 'numeric'
   }) : '';
 
+  // Calculate statistics
+  const totalBidAmount = user ? user.bids.reduce((sum, bid) => sum + bid.amount, 0) : 0;
+  const activeBids = user ? user.bids.length : 0;
+  const projectsCreatedCount = user ? user.projectsCreated.length : 0;
+  const projectsTakenCount = user ? user.projectsTaken.length : 0;
+  
+  const activeProjects = user ? user.projectsCreated.filter(p => p.status === 'IN_PROGRESS' || p.status === 'PENDING').length : 0;
+  const completedProjects = user ? user.projectsCreated.filter(p => p.status === 'COMPLETED').length : 0;
 
 
   const initiateCompletion = (bidId: string) => {
     setShowUploadPanel(prev => new Set(prev).add(bidId));
   };
 
-
+  const cancelCompletion = (bidId: string) => {
+    setShowUploadPanel(prev => {
+      const newSet = new Set(prev);
+      newSet.delete(bidId);
+      return newSet;
+    });
+    setUploadedFiles(prev => {
+      const newMap = new Map(prev);
+      newMap.delete(bidId);
+      return newMap;
+    });
+  };
 
   const handleFileUpload = (bidId: string, event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -278,6 +297,50 @@ export default function ProfilePage() {
           </div>
         </div>
 
+        {/* Stats Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {user.role === 'SELLER' ? (
+            <>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-indigo-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Total Bids Placed</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">{activeBids}</p>
+              </div>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-green-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Total Bid Amount</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">${totalBidAmount.toLocaleString()}</p>
+              </div>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-purple-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Average Bid</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">
+                  ₹{activeBids > 0 ? Math.round(totalBidAmount / activeBids).toLocaleString() : '0'}
+                </p>
+              </div>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-orange-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Projects Taken</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">{projectsTakenCount}</p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-blue-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Projects Created</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">{projectsCreatedCount}</p>
+              </div>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-yellow-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Active Projects</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">{activeProjects}</p>
+              </div>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-green-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Completed Projects</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">{completedProjects}</p>
+              </div>
+              <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-indigo-500">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Total Bids Received</h3>
+                <p className="text-3xl font-bold text-gray-900 mt-2">{user.bids.length}</p>
+              </div>
+            </>
+          )}
+        </div>
 
       </div>
     </div>
