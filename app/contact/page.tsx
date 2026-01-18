@@ -31,7 +31,7 @@ export default function ContactUsPage() {
                 Phone
               </h2>
               <p className="text-gray-700">
-                +91 90000 00000
+                +91 82530 38815
               </p>
               <p className="text-sm text-gray-500">
                 Available Monday to Friday, 10 AM – 6 PM IST
