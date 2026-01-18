@@ -34,7 +34,7 @@ export async function createBidLogic(
   });
 
   if (!seller) {
-    throw new Error("Seller not found.");
+    throw new Error("Freelancer not found.");
   }
 
   const bid = await prisma.bid.create({
