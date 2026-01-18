@@ -1,5 +1,7 @@
 'use client';
-import { useParams,useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+
 import StatusBadge from '../../../../../components/StatusBadge';
 import SelectBidButton from '../../../../../components/SelectBidButton';
 import { useEffect, useState } from 'react';
@@ -100,16 +102,6 @@ const router = useRouter();
   }
 };
 
-
-  // const handleSubmitReview = async () => {
-  //   console.log('Review submitted');
-  //   if (project) {
-  //     setProject({
-  //       ...project,
-  //       status: 'COMPLETED'
-  //     });
-  //   }
-  // };
 
   // Show loader while loading
   if (loading) {
@@ -252,80 +244,6 @@ const router = useRouter();
               </div>
             </div>
           )}
-
-{/* Review submit and find attach documents */}
-          {/* {project.status === 'COMPLETED' && (
-            <div className="border-t border-gray-200 px-6 py-5 bg-gray-50">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Project Completed</h2>
-              <div className="p-4 bg-white border border-gray-200 rounded-lg">
-                <h3 className="font-medium text-gray-900 mb-2">Deliverables Received</h3>
-                <p className="text-gray-700 mb-4">
-                  The seller has submitted the final deliverables for your review.
-                </p>
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-900">Files</h4>
-                    <ul className="mt-1 text-sm text-gray-700">
-                      <li className="flex items-center">
-                        <svg className="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clipRule="evenodd" />
-                        </svg>
-                        <span className="ml-2">website-design.zip (24.5 MB)</span>
-                      </li>
-                      <li className="flex items-center mt-2">
-                        <svg className="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clipRule="evenodd" />
-                        </svg>
-                        <span className="ml-2">style-guide.pdf (2.1 MB)</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-900">Seller Notes</h4>
-                    <p className="mt-1 text-sm text-gray-700">
-                      Thank you for the opportunity to work on this project. Please find attached all the final design files and a style guide for your reference. Let me know if you need any modifications or have questions about the deliverables.
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-6">
-                  <h3 className="text-sm font-medium text-gray-900 mb-2">Rate the Seller</h3>
-                  <div className="flex items-center space-x-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button
-                        key={star}
-                        type="button"
-                        className="text-gray-400 hover:text-yellow-500 focus:outline-none"
-                      >
-                        <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      </button>
-                    ))}
-                  </div>
-                  <div className="mt-4">
-                    <label htmlFor="review" className="block text-sm font-medium text-gray-700">
-                      Write a Review
-                    </label>
-                    <textarea
-                      id="review"
-                      rows={4}
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      placeholder="Share your experience working with this seller..."
-                    />
-                  </div>
-                  <div className="mt-4 flex justify-end">
-                    <button
-                      type="button"
-                      onClick={handleSubmitReview}
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                      Submit Review
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
     </div>
