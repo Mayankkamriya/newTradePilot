@@ -16,13 +16,13 @@ const Footer = () => {
               Connecting buyers with skilled sellers for project collaboration.
             </p>
             <div className="flex space-x-4">
-              <a href="https://github.com/Mayankkamriya" className="cursor-pointer text-gray-300 hover:text-white">
+              <a href="https://github.com/Mayankkamriya" className="cursor-pointer text-gray-300 hover:text-white transition-colors">
                 <FaGithub className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-white">
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
                 <FaTwitter className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/in/mayank-kamriya/" className="cursor-pointer text-gray-300 hover:text-white">
+              <a href="https://www.linkedin.com/in/mayank-kamriya/" className="cursor-pointer text-gray-300 hover:text-white transition-colors">
                 <FaLinkedin className="h-5 w-5" />
               </a>
             </div>
@@ -33,18 +33,18 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Navigation</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-white">
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#projects" className="text-gray-300 hover:text-white">
-                  Projects
+                <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="#bids" className="text-gray-300 hover:text-white">
-                  Bids
+                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
               <li>
@@ -60,17 +60,17 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Legal</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="#privacy" className="text-gray-300 hover:text-white">
+                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#terms" className="text-gray-300 hover:text-white">
+                <Link href="/terms" className="text-gray-300 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#cookies" className="text-gray-300 hover:text-white">
+                <Link href="/cookies" className="text-gray-300 hover:text-white transition-colors">
                   Cookie Policy
                 </Link>
               </li>
