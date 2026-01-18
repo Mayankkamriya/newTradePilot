@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">TradePilot</h3>
             <p className="text-gray-300">
-              Connecting Clients with skilled freelancers for project collaboration.
+              Connecting clients with skilled freelancers for project collaboration.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/Mayankkamriya" className="cursor-pointer text-gray-300 hover:text-white transition-colors">

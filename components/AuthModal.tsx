@@ -53,35 +53,31 @@ export default function AuthModal({ isOpen, onClose, type, onTypeChange }: AuthM
         })
       });
 
-      // Handle non-OK responses
+  const data = await response.json().catch(() => null);
       if (!response.ok) {
-        let errorMessage = 'Failed to send OTP';
-        
-        try {
-          const data = await response.json();
-          errorMessage = data.message || errorMessage;
-        } catch {
-          // Response body might not be JSON
-        }
-        
+        const errorMessage =
+          data?.message || "Failed to send OTP. Please try again.";
+      
+        // User already exists
         if (response.status === 409) {
-          toast.error('This email is already registered. Please login instead.');
-          onTypeChange('login');
-        } else if (response.status === 400) {
-          toast.error(errorMessage);
-        } else {
-          toast.error(errorMessage);
+          toast.error("This email is already registered. Please login instead.");
+          onTypeChange("login");
+          return;
         }
+     if (response.status === 400) {
+          toast.error(errorMessage);
+          return;
+        }
+        toast.error(errorMessage);
         return;
       }
 
-      const data = await response.json();
-      toast.success(data.message || 'OTP sent to your email');
+      toast.success(data?.message || "OTP sent to your email");
       setOtpSent(true);
     } catch (error) {
       const err = error as Error;
       if (err.message === 'Failed to fetch') {
-        toast.error('Unable to connect to server. Please check your connection.');
+        toast.error('Unable to connect to server. Please check your internet.');
       } else {
         toast.error(err.message || 'Failed to send OTP. Please try again.');
       }
