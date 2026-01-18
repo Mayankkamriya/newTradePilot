@@ -496,7 +496,7 @@ const submitCompletion = async (bidId: string, projectId: string) => {
               </div>
               <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-green-500">
                 <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Total Bid Amount</h3>
-                <p className="text-3xl font-bold text-gray-900 mt-2">${totalBidAmount.toLocaleString()}</p>
+                <p className="text-3xl font-bold text-gray-900 mt-2">₹{totalBidAmount.toLocaleString()}</p>
               </div>
               <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-purple-500">
                 <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Average Bid</h3>

@@ -128,7 +128,7 @@ export default function Navbar() {
             )}
 
             {isLoggedIn ? (
-              <button onClick={handleLogout} className="text-indigo-600">
+              <button onClick={handleLogout} className="text-indigo-600 cursor-pointer">
                 Logout
               </button>
             ) : (
@@ -138,7 +138,7 @@ export default function Navbar() {
                     setAuthType('login');
                     setIsAuthModalOpen(true);
                   }}
-                  className="text-indigo-600"
+                  className="text-indigo-600 cursor-pointer"
                 >
                   Login
                 </button>
@@ -147,7 +147,7 @@ export default function Navbar() {
                     setAuthType('register');
                     setIsAuthModalOpen(true);
                   }}
-                  className="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-md"
+                  className="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-md cursor-pointer"
                 >
                   Register
                 </button>
