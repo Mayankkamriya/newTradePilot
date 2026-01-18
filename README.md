@@ -23,8 +23,6 @@ The platform enables clients to post projects with budgets and deadlines, while 
 * Works on selected projects
 * Uploads deliverables to complete projects
 
-
-
 ## Core Workflow
 
 1. **Client posts a project**
@@ -33,7 +31,6 @@ The platform enables clients to post projects with budgets and deadlines, while 
 4. **Project moves to In Progress**
 5. **Freelancer submits deliverables**
 6. **Project marked as Completed**
-
 
 ## Key Features
 
@@ -45,6 +42,19 @@ The platform enables clients to post projects with budgets and deadlines, while 
 * Email notifications for key project updates
 * Responsive UI for desktop and mobile
 
+## Testing Credentials
+
+Use the following credentials to test the platform:
+
+### Client Account
+
+* **Email:** [mayankkamriya305@gmail.com](mailto:mayankkamriya305@gmail.com)
+* **Password:** 123456
+
+### Freelancer Account
+
+* **Email:** [mayankkamriya99@gmail.com](mailto:mayankkamriya99@gmail.com)
+* **Password:** 123456
 
 ## Tech Stack
 
